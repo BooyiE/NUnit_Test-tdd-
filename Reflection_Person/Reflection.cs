@@ -11,17 +11,17 @@ namespace Reflection_Person
         {
             var dictionary = new Dictionary<string, string>();
             var typePerson = typeof(Person);
-            var instant = Activator.CreateInstance(typePerson);
-            var getmethodsetvalue = typePerson.GetMethod("PublicValues");
-            getmethodsetvalue.Invoke(instant, null);
+            var personInstance = Activator.CreateInstance(typePerson);
+            var setNameAndSurnameMethod = typePerson.GetMethod("SetNameAndSurname");
+            setNameAndSurnameMethod.Invoke(personInstance, null);
 
-            var getmethodgender = typePerson.GetMethod("GenderValue", BindingFlags.NonPublic | BindingFlags.Instance);
-            getmethodgender.Invoke(instant, null);
+            var SetGender = typePerson.GetMethod("SetGender", BindingFlags.NonPublic | BindingFlags.Instance);
+            SetGender.Invoke(personInstance, null);
 
             PropertyInfo[] props = typePerson.GetProperties(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
             foreach (var prop in props)
             {
-                dictionary.Add(prop.Name, prop.GetValue(instant).ToString());
+                dictionary.Add(prop.Name, prop.GetValue(personInstance).ToString());
                 //Console.WriteLine(prop.GetValue(instant));
 
             }

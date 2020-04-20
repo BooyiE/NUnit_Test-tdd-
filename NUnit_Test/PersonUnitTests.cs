@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace NUnit_Test
 {
     [TestFixture]
-    public class Tests
+    public class PersonUnitTests
     {
         Reflection reflection;
         Person person;
@@ -16,7 +16,7 @@ namespace NUnit_Test
         {
             reflection = new Reflection();
             person = new Person();
-            person.PublicValues();
+            person.SetNameAndSurname();
             dictionaryFromReflectionMethod = reflection.ReflectionMethod();
         }
 

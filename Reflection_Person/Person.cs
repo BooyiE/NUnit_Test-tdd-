@@ -22,13 +22,13 @@ namespace Rosyln_Create_A_Class
             set;
         }
 
-        public void PublicValues()
+        public void SetNameAndSurname()
         {
             this.Name = "Buyie";
             this.Surname = "Phofuyagae";
         }
 
-        private void GenderValue()
+        private void SetGender()
         {
             this.Gender = "Female";
         }
